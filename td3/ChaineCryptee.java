@@ -16,21 +16,10 @@ public class ChaineCryptee
      */
     /*public ChaineCryptee()
     {
-        en_clair="AA AA A A";
+        this.en_clair="AA AA A A";
         decalage=3;
       
     }*/
-        
-    public String decrypte()
-    {
-        return en_clair;
-    }
-    
-    private static char decaleCaractere(char c, int decalage)
-    {
-    return (c < 'A' || c > 'Z')? c : (char)(((c - 'A' + decalage) % 26) + 'A');
-    }
-    
     public String crypte()
     {
         String ChaineCryptee="";
@@ -44,7 +33,22 @@ public class ChaineCryptee
         return ChaineCryptee;
         }
         else return "Erreur";
+    }    
+    
+    public String decrypte()
+    {
+        String res="";
+        if(crypte==null)return null;
+        
+        return en_clair;
     }
+    
+    private static char decaleCaractere(char c, int decalage)
+    {
+    return (c < 'A' || c > 'Z')? c : (char)(Math.floorMod((c - 'A' + decalage),26) + 'A');
+    }
+    
+    
     }
 
    
